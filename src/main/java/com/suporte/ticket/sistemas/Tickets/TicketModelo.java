@@ -2,7 +2,6 @@ package com.suporte.ticket.sistemas.Tickets;
 
 
 import com.suporte.ticket.sistemas.descricao.Descricao;
-import com.suporte.ticket.sistemas.descricao.DescricaoCadastro;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -44,4 +43,8 @@ public class TicketModelo {
         this.dataAbertura = LocalDate.now();
     }
 
+    public void atualizarTicket(atualizarTicket dados){
+        this.descricao = new Descricao(dados.descricao());
+        this.status = dados.status();
+    }
 }
