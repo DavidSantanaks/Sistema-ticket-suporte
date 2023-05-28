@@ -26,7 +26,7 @@ public class TicketController {
         repository.save(new TicketModelo(dados));
     }
 
-    //Listar por ID
+    //Listar por ID ---> atualizar para paginar por apenas aberto
     @GetMapping
     public List<ListarTicketAbertoRecord> listar(Pageable paginacao){
         return repository.findAll(paginacao).stream().map(ListarTicketAbertoRecord::new).toList();
@@ -42,8 +42,13 @@ public class TicketController {
 
     }
 
-    //@DeleteMapping
-    //Metodo para "fechar o chamado"
+    @DeleteMapping("/{id}")
+    @Transactional
+    public void fecharChamado(@PathVariable long id){
+        TicketModelo ticker = repository.getReferenceById(id);
+        ticker.fecharChamado();
+    }
+
 
 
 }

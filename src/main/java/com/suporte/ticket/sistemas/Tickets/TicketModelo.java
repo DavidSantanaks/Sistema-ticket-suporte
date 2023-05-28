@@ -47,4 +47,9 @@ public class TicketModelo {
         this.descricao = new Descricao(dados.descricao());
         this.status = dados.status();
     }
+
+    public void fecharChamado(){
+        this.status =  Status.FECHADO;
+        this.dataFechamento = LocalDate.now();
+    }
 }
