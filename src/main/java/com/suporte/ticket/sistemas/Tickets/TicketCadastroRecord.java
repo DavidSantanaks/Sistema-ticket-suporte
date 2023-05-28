@@ -1,17 +1,23 @@
 package com.suporte.ticket.sistemas.Tickets;
 
-import com.suporte.ticket.sistemas.Status.Status;
+import com.suporte.ticket.sistemas.descricao.DescricaoCadastro;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 
-public record TicketRecord(
-        Integer id,
+public record TicketCadastroRecord(
+        int id,
+        @NotNull
         String cliente,
+        @NotNull
         String assunto,
-        String descricao,
+        @NotNull
         Status status,
-        Date dataAbertura,
-        Date dataFechamento
-) {
-}
+        @NotNull
+        @Email
+        String email,
+        DescricaoCadastro descricao,
+        LocalDate dataAbertura
+) {}

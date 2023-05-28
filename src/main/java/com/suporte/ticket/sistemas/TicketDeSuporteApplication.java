@@ -1,4 +1,4 @@
-package com.suporte.ticket.sistemas.Ticket.de.suporte;
+package com.suporte.ticket.sistemas;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
